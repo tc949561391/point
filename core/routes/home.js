@@ -6,5 +6,6 @@ var router = express.Router();
 var homeController=require('../controllers/homeController')
 /* GET users listing. */
 router.get('/', homeController.index);
-router.get('/login', homeController.login);
+router.get('/login', homeController.pagelogin);
+router.post('/login',homeController.login)
 module.exports = router;

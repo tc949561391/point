@@ -6,9 +6,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var oauthserver = require('oauth2-server')
-var oauthModels = require('./app/models/oauth')
+var oauthModels = require('./core/models/oauth')
 
-var routes = require('./app/routes');
+var routes = require('./core/routes');
 var errorHandler=require('./errors/errorHandler')
 
 var app = express();
