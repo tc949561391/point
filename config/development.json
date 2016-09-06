@@ -1,0 +1,7 @@
+{
+  "db": "mongodb://moondust:tristan201314@www.moondust.cc/moondust",
+  "redis":{
+    "host":"localhost",
+    "port":6379
+  }
+}

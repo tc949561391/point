@@ -1,0 +1,15 @@
+extends ../common/layout
+
+block content
+    section.login
+        .titulo Staff Login
+        form(action='#', method='post', enctype='application/x-www-form-urlencoded')
+            input(type='text', required='', title='Username required', placeholder='Username', data-icon='U')
+            input(type='password', required='', title='Password required', placeholder='Password', data-icon='x')
+            .olvido
+                .col
+                    a(href='#', title='Ver Carásteres') Register
+                .col
+                    a(href='#', title='Recuperar Password') Fotgot Password?
+            a.enviar(href='#') Submit
+

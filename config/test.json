@@ -1,0 +1,7 @@
+{
+  "db": "localhost/oauth-example-test",
+  "redis":{
+    "host":"localhost",
+    "port":6379
+  }
+}
