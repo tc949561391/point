@@ -1,10 +1,16 @@
 extends ../common/layout
+block head
+    title=title
+    link(href='/style/home/login.css',rel='stylesheet')
 
 block content
-    section.login
-        .titulo Staff Login
-        form(action='/login', method='post', enctype='application/x-www-form-urlencoded')
-            input(type='text', required='', title='Username required', placeholder='mobile', data-icon='U',name='mobile_phone')
-            input(type='password', required='', title='Password required', placeholder='Password', data-icon='x',name='password')
-            input(type='submit',value='login')
-
+    div.head
+        h1 head
+        div
+            div.login_img
+            div.login
+                .titulo Staff Login
+                form(action='/login', method='post', enctype='application/x-www-form-urlencoded')
+                    input(type='text', required='', title='Username required', placeholder='mobile', data-icon='U',name='mobile_phone')
+                    input(type='password', required='', title='Password required', placeholder='Password', data-icon='x',name='password')
+                    input(type='submit',value='login')

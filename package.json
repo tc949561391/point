@@ -8,10 +8,13 @@
   "dependencies": {
     "bcrypt": "^0.8.7",
     "body-parser": "~1.15.1",
+    "connect-redis": "^3.1.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
+    "ejs": "^2.5.1",
     "express": "~4.13.4",
     "express-domain": "^1.0.5",
+    "express-session": "^1.14.1",
     "mongoose": "^4.5.9",
     "morgan": "~1.7.0",
     "node-sass-middleware": "^0.8.0",

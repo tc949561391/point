@@ -1,7 +1,19 @@
 {
+  "boot":{
+    "port":80
+  },
   "db": "mongodb://moondust:tristan201314@www.moondust.cc/moondust",
-  "redis":{
-    "host":"localhost",
-    "port":6379
+  "redis": {
+    "host": "localhost",
+    "port": 6379
+  },
+  "sessionRedis": {
+    "host": "localhost",
+    "port": 6379,
+    "db": 6
+  },
+  "cookie":{
+    "path":"/",
+    "domain":"localhost"
   }
 }

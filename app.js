@@ -3,10 +3,13 @@ var expressDomain = require('express-domain');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var oauthserver = require('oauth2-server')
+var session=require('express-session')
+var RedisStore=require('connect-redis')(session)
 var oauthModels = require('./core/models/oauth')
+
+var config=require('./config')
 
 var routes = require('./core/routes');
 var errorHandler=require('./errors/errorHandler')
@@ -22,6 +25,14 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(expressDomain());
 app.use(bodyParser.json());
+//会话管理
+
+app.use(session({
+    store:new RedisStore(config.sessionRedis),
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
 
 app.oauth = oauthserver({
     model: oauthModels,
@@ -29,15 +40,17 @@ app.oauth = oauthserver({
     debug: true
 })
 
+
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
+
 
 app.use(require('node-sass-middleware')({
-  src: path.join(__dirname, 'public'),
+  src: path.join(__dirname, 'sass'),
   dest: path.join(__dirname, 'public'),
   indentedSyntax: true,
-  sourceMap: true
+  sourceMap: false
 }));
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 

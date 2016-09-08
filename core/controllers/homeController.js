@@ -5,12 +5,16 @@ var paterm = require('../util/format')
 var Errors = require('../../errors')
 module.exports.index=function (req,res,next) {
     var model={
-        title:'Home'
+        title:'Home',
+    }
+    if (req.session.user){
+        model.user=req.session.user
     }
     res.render('home/index',model)
 }
 
 module.exports.pagelogin=function (req,res,next) {
+    delete req.session.user
     var model={
         title:'Login'
     }
@@ -33,7 +37,8 @@ exports.login = function (req, res, nex) {
         if (err) throw  err
 
         req.session.user=user
-        res.json(user)
+        res.json(req.session.user)
+
     })
 }
 

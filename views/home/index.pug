@@ -1,5 +1,12 @@
 extends ../common/layout
 
+
+block head
+    title=title
+    script(src='/plugin/jQuery/jquery.min.js')
+    script(src='/plugin/bootstrap/js/bootstrap.min.js')
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    p Welcome to #{title}
+    -if (user)
+     p userId=#{user._id}
