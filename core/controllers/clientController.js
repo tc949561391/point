@@ -5,7 +5,7 @@ var clientService=require('../service/clientService')
 exports.registerClient=function (req,res,nex) {
     var clientName=req.body.client_name
     var redirectUrl=req.body.redirect_url
-    clientService.registerClient(clientName,function (err,client) {
+    clientService.registerClient(clientName,redirectUrl,function (err,client) {
         if (err) throw err
         res.json(client)
     })

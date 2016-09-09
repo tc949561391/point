@@ -5,14 +5,14 @@ var uuid = require('uuid')
 var ClientModel = require('../models/mongo/client')
 var Errors=require('../../errors')
 
-exports.registerClient = function (clientName, callback) {
-    var clientId = uuid.v1()
-    var clientSecret = uuid.v1()
+exports.registerClient = function (clientName,redirectUrl, callback) {
+    var clientId = uuid.v4()
+    var clientSecret = uuid.v4()
     ClientModel.saveClient({
         clientId: clientId,
         clientSecret: clientSecret,
         clientName: clientName,
-        redirectUrl: 'http://localhost/rd',
+        redirectUrl: redirectUrl,
         authType: 'password',
         scope: 'read',
         status: 1
